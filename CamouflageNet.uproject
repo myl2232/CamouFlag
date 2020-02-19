@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{70C2F0F0-4F88-6FC7-BE32-778D8B1E4CA8}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "CamouflageNet",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"UMG"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "MagicLeapMedia",
+			"Enabled": false
+		},
+		{
+			"Name": "MagicLeap",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusVR",
+			"Enabled": false
+		},
+		{
+			"Name": "SteamVR",
+			"Enabled": false
+		}
+	]
+}
