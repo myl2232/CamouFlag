@@ -2,14 +2,14 @@
 
 
 #include "TGameInstance.h"
-#include "STViewportWidget.h"
+#include "Frame/STViewportWidget.h"
 #include "Engine.h"
 #include "TGameViewportClient.h"
-#include "XWindow.h"
+#include "Frame/XWindow.h"
 #include "TEditorGameEngine.h"
-#include "XResManager.h"
-#include "XFrameCommands.h"
-#include "XSysTitleBar.h"
+#include "Data/XResManager.h"
+#include "Frame/XFrameCommands.h"
+#include "Frame/XSysTitleBar.h"
 
 #define LOCTEXT_NAMESPACE "TGameInstance"
 

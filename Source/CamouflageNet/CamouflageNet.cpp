@@ -2,7 +2,7 @@
 
 #include "CamouflageNet.h"
 #include "Modules/ModuleManager.h"
-#include "XResManager.h"
+#include "Data/XResManager.h"
 
 void CamouflageModule::StartupModule()
 {

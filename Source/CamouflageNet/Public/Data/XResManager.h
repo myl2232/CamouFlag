@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Object.h"
-#include "XCoreType.h"
+#include "Core/XCoreType.h"
 #include "XResManager.generated.h"
 
 class UResInterface;

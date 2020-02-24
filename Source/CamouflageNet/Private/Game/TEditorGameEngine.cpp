@@ -2,8 +2,8 @@
 
 
 #include "TEditorGameEngine.h"
-#include "TGameViewportClient.h"
-#include "STViewportWidget.h"
+#include "Frame/TGameViewportClient.h"
+#include "Frame/STViewportWidget.h"
 #include "TGameInstance.h"
 
 UTGameInstance* TGI = nullptr;

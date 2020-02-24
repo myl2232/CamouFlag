@@ -3,7 +3,7 @@
 
 #include "TGameViewportClient.h"
 #include "STViewportWidget.h"
-#include "TGameInstance.h"
+#include "Game/TGameInstance.h"
 #include "SceneViewport.h"
 
 UTGameInstance* TGI = nullptr;

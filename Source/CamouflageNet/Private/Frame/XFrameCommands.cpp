@@ -1,6 +1,6 @@
 #include "XFrameCommands.h"
 #include "SlateApplication.h"
-#include "XResManager.h"
+#include "Data/XResManager.h"
 
 #define LOCTEXT_NAMESPACE "FXFrameCommands"
 

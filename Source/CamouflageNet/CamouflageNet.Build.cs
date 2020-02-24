@@ -8,7 +8,8 @@ public class CamouflageNet : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PublicIncludePaths.AddRange(new string[] {"Editor","Runtime/Engine" });
+        PublicIncludePaths.AddRange(new string[] {"Editor","Runtime/Engine", "CamouflageNet/Public" });
+        PrivateIncludePaths.AddRange(new string[] { "CamouflageNet/Public" });
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore",
             "Slate", "AppFramework","SlateCore", "ApplicationCore" });

@@ -5,7 +5,7 @@
 #include "TGameViewportClient.h"
 #include "SBox.h"
 #include "SButton.h"
-#include "TEditorGameEngine.h"
+#include "Game/TEditorGameEngine.h"
 #include "XSysTitleBar.h"
 
 STViewportWidget::STViewportWidget()
