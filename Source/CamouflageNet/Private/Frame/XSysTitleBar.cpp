@@ -1,4 +1,5 @@
 #include "XSysTitleBar.h"
+#include "Style/XStyle.h"
 
 void SXSysTitleBar::Construct(const FArguments& InArgs)
 {
@@ -32,6 +33,37 @@ void SXSysTitleBar::Construct(const FArguments& InArgs)
 					.VAlign(VAlign_Center)
 					[
 						CreateMenu()
+					]
+				]
+
+				+ SHorizontalBox::Slot()
+				.AutoWidth()
+				.HAlign(HAlign_Right)
+				[
+					SNew(SHorizontalBox)
+					
+					+ SHorizontalBox::Slot()
+					.VAlign(VAlign_Center)
+					[
+						SNew(SHorizontalBox)
+
+						// 最小化按钮
+						+ SHorizontalBox::Slot()
+						.AutoWidth()
+						[
+							SNew(SButton)
+							.ButtonStyle(&FXStyle::Get().GetWidgetStyle<FButtonStyle>("Button.Minimize"))
+							.OnClicked(this, &SXSysTitleBar::OnMinimizeButtonClicked)
+						]
+
+						// 关闭按钮
+						+ SHorizontalBox::Slot()
+						.AutoWidth()
+						[
+							SNew(SButton)
+							.ButtonStyle(&FXStyle::Get().GetWidgetStyle<FButtonStyle>("Button.CloseApplication"))
+							.OnClicked(this, &SXSysTitleBar::OnCloseButtonClicked)
+						]
 					]
 				]
 			]
@@ -77,4 +109,34 @@ void SXSysTitleBar::FillMenu(FMenuBuilder& MenuBuilder, const TSharedRef<FExtend
 		}
 		MenuBuilder.EndSection();
 	}
+}
+
+/** 最小化窗口 */
+FReply SXSysTitleBar::OnMinimizeButtonClicked()
+{
+	TSharedPtr<SWindow> RootWindow = GEngine->GameViewport->GetWindow();
+
+	if (RootWindow.IsValid())
+	{
+		TSharedPtr<FGenericWindow> NativeWindow = RootWindow->GetNativeWindow();
+
+		if (NativeWindow.IsValid())
+		{
+			NativeWindow->Minimize();
+		}
+	}
+
+	return FReply::Handled();
+}
+
+/** 关闭窗口 */
+FReply SXSysTitleBar::OnCloseButtonClicked()
+{
+	//FXRFrameModule::Get().OnApplicationClosed.ExecuteIfBound();
+	TSharedPtr<SWindow> RootWindow = GEngine->GameViewport->GetWindow();	
+	if (RootWindow.IsValid())
+	{
+		RootWindow->RequestDestroyWindow();
+	}			
+	return FReply::Handled();
 }

@@ -35,6 +35,11 @@ public:
 
 	static void FillMenu(FMenuBuilder& MenuBuilder, const TSharedRef<FExtender> Extender, TSharedPtr<FXMenuInfo> InMenuInfo);
 
+	/** 最小化窗口 */
+	FReply OnMinimizeButtonClicked();
+
+	/** 关闭窗口 */
+	FReply OnCloseButtonClicked();
 protected:
 	/** 创建菜单 */
 	TSharedRef<SWidget> CreateMenu();

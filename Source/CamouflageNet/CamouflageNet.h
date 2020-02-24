@@ -10,4 +10,7 @@ class CamouflageModule : public IModuleInterface
 
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+public:
+	/** 程序关闭的代理 */
+	FSimpleDelegate OnApplicationClosed;
 };

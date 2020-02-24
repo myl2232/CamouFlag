@@ -24,7 +24,7 @@ public:
 	STViewportWidget();
 	~STViewportWidget();
 	void Construct(const FArguments& InArgs);
-
+	//FReply OnCloseButtonClicked();
 public:
 	TSharedPtr<SOverlay> mOverLay;
 	//TSharedPtr<UGameViewClient> mViewClient;

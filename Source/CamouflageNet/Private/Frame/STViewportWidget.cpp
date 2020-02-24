@@ -7,6 +7,7 @@
 #include "SButton.h"
 #include "Game/TEditorGameEngine.h"
 #include "XSysTitleBar.h"
+#include "Style/XStyle.h"
 
 STViewportWidget::STViewportWidget()
 {
@@ -71,9 +72,32 @@ void STViewportWidget::Construct(const FArguments& InArgs)
 						]
 					]
 				]
-			]
-			
+			]			
 		]	
+		/*+ SOverlay::Slot()
+		.HAlign(HAlign_Right)
+		.VAlign(VAlign_Top)
+		.Padding(0, 23.5, 23.5, 0)
+		[
+			SNew(SBox)
+			[
+				SNew(SButton)
+				.ButtonStyle(&FXStyle::Get().GetWidgetStyle<FButtonStyle>("Button.CloseApplication"))
+				.OnClicked(this, &STViewportWidget::OnCloseButtonClicked)
+			]
+		]*/
 	];
 
 }
+
+//FReply STViewportWidget::OnCloseButtonClicked()
+//{
+//	TSharedPtr<SWindow> RootWindow = GEngine->GameViewport->GetWindow();
+//
+//	if (RootWindow.IsValid())
+//	{
+//		RootWindow->RequestDestroyWindow();
+//	}
+//
+//	return FReply::Handled();
+//}
