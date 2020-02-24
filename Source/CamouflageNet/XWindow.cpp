@@ -23,7 +23,9 @@ void SXWindow::Construct(const FArguments& InArgs)
 		//]
 	];
 
-	SetWindowContent(SAssignNew(mContent, STViewportWidget));
+	SetWindowContent(SAssignNew(mContent, STViewportWidget)
+		.MenuConstructionInfos(InArgs._MenuConstructionInfos)
+		.CommandList(InArgs._CommandList));
 }
 
 void SXWindow::OnMouseEnter(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)

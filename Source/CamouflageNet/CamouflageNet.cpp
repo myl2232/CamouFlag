@@ -2,5 +2,15 @@
 
 #include "CamouflageNet.h"
 #include "Modules/ModuleManager.h"
+#include "XResManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, CamouflageNet, "CamouflageNet" );
+void CamouflageModule::StartupModule()
+{
+	UXResManagerInstance::GetInstance().Startup();
+}
+void CamouflageModule::ShutdownModule()
+{
+	UXResManagerInstance::GetInstance().ReleaseInstance();
+}
+
+IMPLEMENT_PRIMARY_GAME_MODULE(CamouflageModule/*FDefaultGameModuleImpl*/, CamouflageNet, "CamouflageNet" );

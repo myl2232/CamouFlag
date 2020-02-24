@@ -16,4 +16,5 @@ class CAMOUFLAGENET_API UTEditorGameEngine : public UGameEngine
 public:
 	UTEditorGameEngine();
 	virtual void Init(class IEngineLoop* InEngineLoop) override;
+	virtual void Tick(float DeltaSeconds, bool bIdleMode) override;
 };

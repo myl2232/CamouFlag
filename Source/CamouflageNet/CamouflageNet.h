@@ -4,3 +4,10 @@
 
 #include "CoreMinimal.h"
 
+class CamouflageModule : public IModuleInterface
+{
+	// IModuleInterface interface
+
+	virtual void StartupModule() override;
+	virtual void ShutdownModule() override;
+};

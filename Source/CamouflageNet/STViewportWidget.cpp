@@ -6,6 +6,7 @@
 #include "SBox.h"
 #include "SButton.h"
 #include "TEditorGameEngine.h"
+#include "XSysTitleBar.h"
 
 STViewportWidget::STViewportWidget()
 {
@@ -25,37 +26,53 @@ void STViewportWidget::Construct(const FArguments& InArgs)
 		.VAlign(VAlign_Fill)
 		.HAlign(HAlign_Fill)			
 		[
-			SNew(SHorizontalBox)
-			+ SHorizontalBox::Slot()
-			.VAlign(VAlign_Fill)
-			.HAlign(HAlign_Fill)
-			.AutoWidth()
+			SNew(SVerticalBox)
+
+			+SVerticalBox::Slot()
+			.AutoHeight()
 			[
-				SNew(SBorder)
-				.Padding(0)
+				SAssignNew(titleBar, SXSysTitleBar)
+				.MenuConstrctionInfos(InArgs._MenuConstructionInfos)
+				.CommandsList(InArgs._CommandList)
+			]
+
+			+ SVerticalBox::Slot()
+			[
+				SNew(SHorizontalBox)
+
+				+ SHorizontalBox::Slot()
+				.VAlign(VAlign_Fill)
+				.HAlign(HAlign_Fill)
+				.AutoWidth()
 				[
-					SAssignNew(LeftPanel, SBox)	
-					.WidthOverride(360)
-					.HeightOverride(720)
+					SNew(SBorder)
+					.Padding(0)
 					[
-						SNew(SButton)						
+						SAssignNew(LeftPanel, SBox)
+						.WidthOverride(360)
+						.HeightOverride(720)
+						[
+							SNew(SButton)
+						]
+					]
+				]
+
+				+ SHorizontalBox::Slot()
+				.VAlign(VAlign_Fill)
+				.HAlign(HAlign_Fill)
+				.FillWidth(1.f)
+				[
+					SNew(SBorder)
+					.Padding(0)
+					[
+						SAssignNew(RightPanel, SBox)
+						[
+							GEngine->GetGameViewportWidget().ToSharedRef()
+						]
 					]
 				]
 			]
-			+ SHorizontalBox::Slot()
-			.VAlign(VAlign_Fill)
-			.HAlign(HAlign_Fill)
-			.FillWidth(1.f)
-			[
-				SNew(SBorder)
-				.Padding(0)
-				[
-					SAssignNew(RightPanel, SBox)
-					[
-						GEngine->GetGameViewportWidget().ToSharedRef()
-					]					
-				]
-			]
+			
 		]	
 	];
 

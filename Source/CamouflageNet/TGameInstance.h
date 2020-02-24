@@ -8,6 +8,7 @@
 
 class STViewportWidget;
 class SXWindow;
+struct FXMenuInfo;
 /**
  * 
  */
@@ -19,9 +20,19 @@ public:
 	UTGameInstance();
 	virtual void Init() override;
 	virtual void StartGameInstance() override;
+	virtual void LoadComplete(const float LoadTime, const FString& MapName) override;
+
+	UFUNCTION(BlueprintCallable)
+	void OnPostloadAsset();
+
+protected:
+	void InitUICommands();
+	void InitStartUp();
+	void OnPostLoadMap(UWorld* world);
 public:
 	TSharedPtr<STViewportWidget> mViewport;
 	TSharedPtr<SXWindow> mWindow;
+	TArray<TSharedPtr<FXMenuInfo>> MenuInfoArray;
 };
 
 extern CAMOUFLAGENET_API UTGameInstance* TGI;

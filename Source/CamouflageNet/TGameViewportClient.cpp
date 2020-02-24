@@ -4,6 +4,7 @@
 #include "TGameViewportClient.h"
 #include "STViewportWidget.h"
 #include "TGameInstance.h"
+#include "SceneViewport.h"
 
 UTGameInstance* TGI = nullptr;
 
@@ -22,9 +23,10 @@ void UTGameViewportClient::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	/*TSharedPtr<SViewport> viewWidget = GetGameViewportWidget();
-	if (viewWidget.IsValid())
+	FSceneViewport* sceneView = GetGameViewport();
+	if (sceneView)
 	{
+		//sceneView->ShowCursor(true);
+	}
 
-	}*/
 }

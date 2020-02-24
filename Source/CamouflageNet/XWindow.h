@@ -2,11 +2,16 @@
 #include "SCompoundWidget.h"
 class SOverlay;
 class SBox;
+struct FXMenuInfo;
 
 class SXWindow : public SCompoundWidget
 {
 public:
 	SLATE_BEGIN_ARGS(SXWindow) {}
+
+	SLATE_ARGUMENT(TSharedPtr<FUICommandList>, CommandList)
+	SLATE_ARGUMENT(TArray<TSharedPtr<FXMenuInfo>>, MenuConstructionInfos)
+
 	SLATE_END_ARGS()
 		
 	void Construct(const FArguments& InArgs);
