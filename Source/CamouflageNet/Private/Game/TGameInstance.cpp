@@ -42,6 +42,7 @@ void UTGameInstance::StartGameInstance()
 	RootWindow->SetTitle(FText(LOCTEXT("伪装网编辑器", "CamouFlagEditor")));
 	RootWindow->SetContent(mWindow->AsShared());
 	GetGameViewportClient()->EngineShowFlags.CompositeEditorPrimitives = true;
+	RootWindow->Maximize();
 
 	InitStartUp();
 }
