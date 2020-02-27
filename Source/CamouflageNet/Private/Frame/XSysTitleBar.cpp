@@ -1,4 +1,4 @@
-#include "XSysTitleBar.h"
+ï»¿#include "XSysTitleBar.h"
 #include "Style/XStyle.h"
 
 void SXSysTitleBar::Construct(const FArguments& InArgs)
@@ -26,7 +26,7 @@ void SXSysTitleBar::Construct(const FArguments& InArgs)
 				[
 					SNew(SHorizontalBox)
 
-					// ²Ëµ¥
+					// èœå•
 					+ SHorizontalBox::Slot()
 					.FillWidth(1.f)
 					.HAlign(HAlign_Left)
@@ -47,7 +47,7 @@ void SXSysTitleBar::Construct(const FArguments& InArgs)
 					[
 						SNew(SHorizontalBox)
 
-						// ×îĞ¡»¯°´Å¥
+						// æœ€å°åŒ–æŒ‰é’®
 						+ SHorizontalBox::Slot()
 						.AutoWidth()
 						[
@@ -56,7 +56,7 @@ void SXSysTitleBar::Construct(const FArguments& InArgs)
 							.OnClicked(this, &SXSysTitleBar::OnMinimizeButtonClicked)
 						]
 
-						// ¹Ø±Õ°´Å¥
+						// å…³é—­æŒ‰é’®
 						+ SHorizontalBox::Slot()
 						.AutoWidth()
 						[
@@ -111,7 +111,7 @@ void SXSysTitleBar::FillMenu(FMenuBuilder& MenuBuilder, const TSharedRef<FExtend
 	}
 }
 
-/** ×îĞ¡»¯´°¿Ú */
+/** æœ€å°åŒ–çª—å£ */
 FReply SXSysTitleBar::OnMinimizeButtonClicked()
 {
 	TSharedPtr<SWindow> RootWindow = GEngine->GameViewport->GetWindow();
@@ -129,7 +129,7 @@ FReply SXSysTitleBar::OnMinimizeButtonClicked()
 	return FReply::Handled();
 }
 
-/** ¹Ø±Õ´°¿Ú */
+/** å…³é—­çª—å£ */
 FReply SXSysTitleBar::OnCloseButtonClicked()
 {
 	//FXRFrameModule::Get().OnApplicationClosed.ExecuteIfBound();

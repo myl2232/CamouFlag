@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "Commands.h"
 
+class SNASDlg;
+
 class FXFrameCommands : public TCommands<FXFrameCommands>
 {
 public:
@@ -21,6 +23,7 @@ public:
 	TSharedPtr<FUICommandInfo> CommandMenuNew;		
 	TSharedPtr<FUICommandInfo> CommandMenuOpen;		
 
+	static TSharedPtr<SNASDlg> mNASDlg;
 private:
 	void BindGlobalCommands();
 	

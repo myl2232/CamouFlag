@@ -1,13 +1,20 @@
-#include "XFrameCommands.h"
+Ôªø#include "XFrameCommands.h"
 #include "SlateApplication.h"
 #include "Data/XResManager.h"
+#include "TGameInstance.h"
+#include "Frame/NASDlg.h"
+#include "Frame/XWindow.h"
+#include "SharedPointer.h"
 
 #define LOCTEXT_NAMESPACE "FXFrameCommands"
 
+UTGameInstance* TGI = nullptr;
+TSharedPtr<SNASDlg> FXFrameCommands::mNASDlg = nullptr;
+
 void FXFrameCommands::RegisterCommands()
 {
-	UI_COMMAND(CommandMenuNew, "–¬Ω®∑Ω∞∏", "New", EUserInterfaceActionType::Button, FInputChord(EModifierKey::Control, EKeys::N));
-	UI_COMMAND(CommandMenuOpen, "¥Úø™∑Ω∞∏", "Open", EUserInterfaceActionType::Button, FInputChord(EModifierKey::Control, EKeys::O));
+	UI_COMMAND(CommandMenuNew, "Êñ∞Âª∫ÊñπÊ°à", "New", EUserInterfaceActionType::Button, FInputChord(EModifierKey::Control, EKeys::N));
+	UI_COMMAND(CommandMenuOpen, "ÊâìÂºÄÊñπÊ°à", "Open", EUserInterfaceActionType::Button, FInputChord(EModifierKey::Control, EKeys::O));
 
 	BindGlobalCommands();
 }
@@ -29,12 +36,18 @@ bool FXFrameCommands::DefaultCanExecuteAction()
 
 void FXFrameCommands::OnMenuNew()
 {
-
+	if (TGI)
+	{
+		SAssignNew(mNASDlg, SNASDlg);
+		TGI->mWindow->PresentModalDialog(TEXT("‰º™Ë£ÖÈúÄÊ±ÇËØÑ‰º∞"), mNASDlg->AsShared(), 
+			FSimpleDelegate::CreateRaw(mNASDlg.Get(), &SNASDlg::OnConfirmClick));
+	}
+	
 }
 
 void FXFrameCommands::OnMenuOpen()
 {
-	//≤‚ ‘◊ ‘¥
+	//ÊµãËØïËµÑÊ∫ê
 	TSharedPtr<FXObject> item = MakeShareable(new FXObject());
 	item->FilePath = "/Game/MilitaryVehicles/Meshes/Tank_RU/Sm_Turret";
 	AActor* tActor = UXResManagerInstance::GetInstance().GetResManager().CreateActor(item, FVector(0, 0, 120));

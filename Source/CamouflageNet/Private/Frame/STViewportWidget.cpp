@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "STViewportWidget.h"
@@ -8,6 +8,7 @@
 #include "Game/TEditorGameEngine.h"
 #include "XSysTitleBar.h"
 #include "Style/XStyle.h"
+#include "XContentWidget.h"
 
 STViewportWidget::STViewportWidget()
 {
@@ -53,7 +54,7 @@ void STViewportWidget::Construct(const FArguments& InArgs)
 						.WidthOverride(360)
 						.HeightOverride(720)
 						[
-							SNew(SButton)
+							SNew(SXContentWidget)
 						]
 					]
 				]

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ISlateStyle.h"
+#include "CoreStyle.h"
 
 class FXStyleSet;
 

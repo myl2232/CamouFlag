@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+Ôªø// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "TGameInstance.h"
@@ -39,7 +39,7 @@ void UTGameInstance::StartGameInstance()
 		.CommandList(FXFrameCommands::Get().GlobalCommandsList);
 	
 	TSharedPtr<SWindow> RootWindow = GEngine->GameViewport->GetWindow();
-	RootWindow->SetTitle(FText(LOCTEXT("Œ±◊∞Õ¯±‡º≠∆˜", "CamouFlagEditor")));
+	RootWindow->SetTitle(FText(LOCTEXT("‰º™Ë£ÖÁΩëÁºñËæëÂô®", "CamouFlagEditor")));
 	RootWindow->SetContent(mWindow->AsShared());
 	GetGameViewportClient()->EngineShowFlags.CompositeEditorPrimitives = true;
 
@@ -57,7 +57,7 @@ void UTGameInstance::LoadComplete(const float LoadTime, const FString& MapName)
 
 void UTGameInstance::OnPostloadAsset()
 {
-	////≤‚ ‘◊ ‘¥
+	////ÊµãËØïËµÑÊ∫ê
 	//TSharedPtr<FXSceneItem> item = MakeShareable(new FXSceneItem());
 	//item->FilePath = "/Game/MilitaryVehicles/Meshes/Tank_RU/Sm_Turret";
 	//AActor* tActor = UXResManagerInstance::GetInstance().GetResManager().CreateActor(item, FVector(0, 0, 120));
@@ -65,7 +65,7 @@ void UTGameInstance::OnPostloadAsset()
 	//{
 	//	printf("xpxpxpxpxpxpxpxpxpxp");
 	//}
-	//µ∆π‚
+	//ÁÅØÂÖâ
 	//FActorSpawnParameters SpawnInfo;
 	//SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	//SpawnInfo.bNoFail = false;
@@ -83,7 +83,7 @@ void UTGameInstance::InitStartUp()
 	{
 		//UXResManagerInstance::GetInstance().Startup();
 
-		//≤‚ ‘≥°æ∞
+		//ÊµãËØïÂú∫ÊôØ
 		UGameplayStatics::OpenLevel(GWorld, "Startup");
 	}	
 
@@ -93,7 +93,7 @@ void UTGameInstance::InitUICommands()
 {
 	FXFrameCommands::Register();
 	TSharedPtr<FXMenuInfo> MenuInfoPtr = MakeShareable(new FXMenuInfo);
-	MenuInfoPtr->M_Label = FText::FromString(TEXT("Œƒº˛(F)"));
+	MenuInfoPtr->M_Label = FText::FromString(TEXT("Êñá‰ª∂(F)"));
 	MenuInfoPtr->M_Tip = FText::FromString(TEXT("Open the file menu"));
 	MenuInfoPtr->SectionInfos.Push(FXMenuInfo::FXMenuSectionInfo());
 	FXMenuInfo::FXMenuSectionInfo& RefSection = MenuInfoPtr->SectionInfos.Top();

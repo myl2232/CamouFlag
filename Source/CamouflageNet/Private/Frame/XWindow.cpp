@@ -1,6 +1,7 @@
-#include "XWindow.h"
+Ôªø#include "XWindow.h"
 #include "SOverlay.h"
 #include "STViewportWidget.h"
+#include "XModalDlg.h"
 
 void SXWindow::Construct(const FArguments& InArgs)
 {	
@@ -12,15 +13,15 @@ void SXWindow::Construct(const FArguments& InArgs)
 		.VAlign(VAlign_Fill)
 		[
 			SAssignNew(WindowContainer, SBox)
-			//.WidthOverride(1280)
-			//.HeightOverride(960)
+			.WidthOverride(1280)
+			.HeightOverride(960)
 		]
-		//+ SOverlay::Slot()//µ˛º”µƒƒ£Ã¨¥∞ø⁄
-		//.HAlign(HAlign_Fill)
-		//.VAlign(VAlign_Fill)
-		//[
-		//	SAssignNew(WindowOverlay, SOverlay)
-		//]
+		+ SOverlay::Slot()//Âè†Âä†ÁöÑÊ®°ÊÄÅÁ™óÂè£
+		.HAlign(HAlign_Fill)
+		.VAlign(VAlign_Fill)
+		[
+			SAssignNew(WindowOverlay, SOverlay)
+		]
 	];
 
 	SetWindowContent(SAssignNew(mContent, STViewportWidget)
@@ -53,3 +54,44 @@ void SXWindow::DismissModalDialog()
 		WindowOverlay->RemoveSlot();
 	}
 }
+
+void SXWindow::PresentModalDialog(
+	const FString& InTitle,
+	TSharedRef<SWidget> InContentWidget,
+	FSimpleDelegate OnConfirm,
+	FSimpleDelegate OnCancel,
+	FSimpleDelegate OnClose,
+	bool bCloseImmediately,
+	const FString& ConfirmString ,
+	const FString& CancelString )
+{
+	TSharedPtr<SXModalDlg> ModalDialog =
+		SNew(SXModalDlg)
+		.Title(InTitle)
+		.ContentWidget(InContentWidget)
+		.OnConfirm(OnConfirm)
+		.OnCancel(OnCancel)
+		.OnImmediatelyClose(this, &SXWindow::DismissModalDialog)
+		.bCloseImmediately(bCloseImmediately)
+		.ConfirmText(ConfirmString)
+		.CancelText(CancelString);
+
+	PresentModalDialog(ModalDialog.ToSharedRef());
+}
+
+//void SXWindow::PresentModalDialog(const FString& InTitle, TSharedRef<SWidget> InContentWidget,
+//	FSimpleDelegate OnConfirm , bool bCloseImmediately)
+//{
+//	TSharedPtr<SXModalDlg> ModalDialog =
+//		SNew(SXModalDlg)
+//		.Title(InTitle)
+//		.ContentWidget(InContentWidget)
+//		.OnConfirm(OnConfirm)
+//		.OnCancel(FSimpleDelegate())
+//		.OnImmediatelyClose(FSimpleDelegate())
+//		.bCloseImmediately(bCloseImmediately)
+//		.ConfirmText(TEXT("Á°ÆËÆ§"))
+//		.CancelText(TEXT("ÂèñÊ∂à"));
+//
+//	PresentModalDialog(ModalDialog.ToSharedRef());
+//}
