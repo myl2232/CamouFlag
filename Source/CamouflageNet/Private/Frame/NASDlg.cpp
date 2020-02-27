@@ -85,6 +85,19 @@ void SNASDlg::Construct(const FArguments& InArgs)
 						SNew(SEditableTextBox)
 					]
 				]
+				+ SVerticalBox::Slot()
+				[
+					SNew(SHorizontalBox)
+						+ SHorizontalBox::Slot()
+					[
+						SNew(STextBlock)
+						.Text(FText::FromString(TEXT("装备数量")))
+					]
+					+ SHorizontalBox::Slot()
+					[
+						SNew(SEditableTextBox)
+					]
+				]
 			]
 
 			+ SHorizontalBox::Slot()

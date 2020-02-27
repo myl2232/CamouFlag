@@ -32,6 +32,14 @@ enum EResType
 	Default = 2,
 };
 
+struct FSingleListItem
+{
+public:
+	FSingleListItem(FText name) :Name(name) {}
+	FText Name = FText();
+	FString Path;
+};
+
 struct FXKeyValue
 {
 	int32 Key;

@@ -9,6 +9,7 @@
 #include "XSysTitleBar.h"
 #include "Style/XStyle.h"
 #include "XContentWidget.h"
+#include "Data/ContentDriver.h"
 
 STViewportWidget::STViewportWidget()
 {
@@ -55,6 +56,7 @@ void STViewportWidget::Construct(const FArguments& InArgs)
 						.HeightOverride(720)
 						[
 							SNew(SXContentWidget)
+							.ContentDriver(MakeShareable(new FProjectDriver()))
 						]
 					]
 				]

@@ -1,20 +1,17 @@
 #pragma once
 #include "SCompoundWidget.h"
 #include "SListView.h"
+#include "Core/XCoreType.h"
+
+class FContentDriver;
 
 class SXContentWidget : public SCompoundWidget
 {	
-	struct FSingleListItem
-	{
-	public:
-		FSingleListItem(FString name) :Name(name) {}
-		FString Name;
-		FString Path;
-	};
+
 public:
 	SLATE_BEGIN_ARGS(SXContentWidget) {}
 
-	//SLATE_ARGUMENT(TSharedPtr<FUICommandList>, CommandList)
+	SLATE_ARGUMENT(TSharedPtr<FContentDriver>, ContentDriver)
 	//	SLATE_ARGUMENT(TArray<TSharedPtr<FXMenuInfo>>, MenuConstructionInfos)
 
 	SLATE_END_ARGS()
@@ -27,4 +24,6 @@ private:
 private:
 	TSharedPtr<SListView<TSharedPtr<FSingleListItem>>> SingleList;
 	TArray<TSharedPtr<FSingleListItem>> ListSource;
+
+	TSharedPtr<FContentDriver> DataDriver;
 };

@@ -13,8 +13,8 @@ void SXWindow::Construct(const FArguments& InArgs)
 		.VAlign(VAlign_Fill)
 		[
 			SAssignNew(WindowContainer, SBox)
-			.WidthOverride(1280)
-			.HeightOverride(960)
+			//.WidthOverride(1280)
+			//.HeightOverride(960)
 		]
 		+ SOverlay::Slot()//叠加的模态窗口
 		.HAlign(HAlign_Fill)
@@ -27,6 +27,7 @@ void SXWindow::Construct(const FArguments& InArgs)
 	SetWindowContent(SAssignNew(mContent, STViewportWidget)
 		.MenuConstructionInfos(InArgs._MenuConstructionInfos)
 		.CommandList(InArgs._CommandList));
+
 }
 
 void SXWindow::OnMouseEnter(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)

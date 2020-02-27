@@ -1,8 +1,13 @@
 ﻿#include "XContentWidget.h"
 #include "Style/XStyle.h"
+#include "Data/ContentDriver.h"
+
+#define LOCTEXT_NAMESPACE "XContentWidget"
 
 void SXContentWidget::Construct(const FArguments& InArgs)
 {
+	DataDriver = InArgs._ContentDriver;
+
 	FillSource();
 
 	ChildSlot
@@ -27,10 +32,9 @@ void SXContentWidget::Construct(const FArguments& InArgs)
 }
 
 void SXContentWidget::FillSource()
-{
-	ListSource.Add(MakeShareable(new FSingleListItem(TEXT("方案1"))));
-	ListSource.Add(MakeShareable(new FSingleListItem(TEXT("方案2"))));
-	ListSource.Add(MakeShareable(new FSingleListItem(TEXT("方案3"))));
+{	
+	check(DataDriver != nullptr);
+	DataDriver->FillSource(ListSource);
 }
 
 TSharedRef<ITableRow> SXContentWidget::Callback_GenerateWidget(TSharedPtr<FSingleListItem> Item, const TSharedRef<STableViewBase>& OwnerTable)
@@ -39,7 +43,9 @@ TSharedRef<ITableRow> SXContentWidget::Callback_GenerateWidget(TSharedPtr<FSingl
 		.Padding(FMargin(16.0f, 10.0f, 0.0f, 10.0f))
 		[
 			SNew(STextBlock)
-			.Text(FText::FromString(Item->Name))
+			.Text(Item->Name)
 			.TextStyle(&FXStyle::Get().GetWidgetStyle<FTextBlockStyle>("XRText_12"))
 		];
 }
+
+#undef LOCTEXT_NAMESPACE
