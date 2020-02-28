@@ -3,19 +3,14 @@
 #include "SListView.h"
 #include "Core/XCoreType.h"
 
+class FContentDriver;
+
 //需求评估
 class CAMOUFLAGENET_API SNASDlg : public SCompoundWidget
 {
-	struct FSingleListItem
-	{
-	public:
-		FSingleListItem(FString name) :Name(name) {}
-		FString Name;
-		FString Path;
-	};
 public:
 	SLATE_BEGIN_ARGS(SNASDlg) {}
-	//SLATE_ARGUMENT(TSharedPtr<SWidget>, ParentWidget)
+	SLATE_ARGUMENT(TSharedPtr<FContentDriver>, ContentDriver)
 	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);
@@ -31,11 +26,14 @@ private:
 	TSharedRef<SWidget> GenerateComboItem(TSharedPtr<FXKeyValue> InItem, int32 InType);
 	void HandleComboItemChanged(TSharedPtr<FXKeyValue> NewSelection, ESelectInfo::Type SelectInfo, int32 InType);
 	FText GetCurrentComboText(int32 InType) const;
+	TSharedRef<SWidget> MakeNASContent();
 
 public:
 	TSharedPtr<SWidget> mParent;
 	TSharedPtr<SWidget> mEquipCombo;
 private:
+	TSharedPtr<FContentDriver> DataDriver;
+
 	TSharedPtr<SListView<TSharedPtr<FSingleListItem>>> SingleList;
 	TArray<TSharedPtr<FSingleListItem>> ListSource;
 	//combo

@@ -5,6 +5,7 @@
 #include "Frame/NASDlg.h"
 #include "Frame/XWindow.h"
 #include "SharedPointer.h"
+#include "Data/ContentDriver.h"
 
 #define LOCTEXT_NAMESPACE "FXFrameCommands"
 
@@ -38,7 +39,8 @@ void FXFrameCommands::OnMenuNew()
 {
 	if (TGI)
 	{
-		SAssignNew(mNASDlg, SNASDlg);
+		SAssignNew(mNASDlg, SNASDlg)
+			.ContentDriver(MakeShareable(new FNASDriver()));
 		TGI->mWindow->PresentModalDialog(TEXT("伪装需求评估"), mNASDlg->AsShared(), 
 			FSimpleDelegate::CreateRaw(mNASDlg.Get(), &SNASDlg::OnConfirmClick));
 	}

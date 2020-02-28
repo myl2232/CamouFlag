@@ -2,4 +2,9 @@
 
 
 #include "CamouflageNetGameModeBase.h"
+#include "XPlayerController.h"
 
+ACamouflageNetGameModeBase::ACamouflageNetGameModeBase(const FObjectInitializer &ObjectInitializer)
+{
+	PlayerControllerClass = AXPlayerController::StaticClass();
+}

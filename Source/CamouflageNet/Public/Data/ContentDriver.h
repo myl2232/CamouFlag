@@ -22,3 +22,10 @@ public:
 	FRuleDefDriver();
 	virtual void FillSource(TArray<TSharedPtr<FSingleListItem>>& listSource) override;
 };
+
+class FNASDriver : public FContentDriver
+{
+public:
+	FNASDriver();
+	virtual void FillSource(TArray<TSharedPtr<FSingleListItem>>& listSource) override;
+};

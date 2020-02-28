@@ -13,5 +13,7 @@ UCLASS()
 class CAMOUFLAGENET_API ACamouflageNetGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	ACamouflageNetGameModeBase(const FObjectInitializer &ObjectInitializer);
 };
