@@ -9,7 +9,6 @@
 
 #define LOCTEXT_NAMESPACE "FXFrameCommands"
 
-UTGameInstance* TGI = nullptr;
 TSharedPtr<SNASDlg> FXFrameCommands::mNASDlg = nullptr;
 
 void FXFrameCommands::RegisterCommands()

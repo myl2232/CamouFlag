@@ -9,6 +9,7 @@
 #include "XSysTitleBar.h"
 #include "Style/XStyle.h"
 #include "XContentWidget.h"
+#include "Widgets/SUserWidget.h"
 #include "Data/ContentDriver.h"
 
 STViewportWidget::STViewportWidget()

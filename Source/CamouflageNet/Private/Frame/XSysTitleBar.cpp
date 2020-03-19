@@ -35,6 +35,13 @@ void SXSysTitleBar::Construct(const FArguments& InArgs)
 						CreateMenu()
 					]
 				]
+				+ SHorizontalBox::Slot()
+					.AutoWidth()
+					.HAlign(HAlign_Center)
+				[
+					SNew(SButton)
+					.ButtonStyle(&FXStyle::Get().GetWidgetStyle<FButtonStyle>("Button.MasterPlanGray"))
+				]
 
 				+ SHorizontalBox::Slot()
 				.AutoWidth()

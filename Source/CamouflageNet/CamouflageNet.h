@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+class FXEditorModeTools;
 
 class CamouflageModule : public IModuleInterface
 {
@@ -14,3 +15,5 @@ public:
 	/** 程序关闭的代理 */
 	FSimpleDelegate OnApplicationClosed;
 };
+
+CAMOUFLAGENET_API class FXEditorModeTools& GXLevelEditorModeTools();

@@ -9,7 +9,7 @@
 #include "SButton.h"
 #include "Data/ContentDriver.h"
 
-UTGameInstance* TGI = nullptr;
+//UTGameInstance* TGI = nullptr;
 
 void SNASDlg::Construct(const FArguments& InArgs)
 {

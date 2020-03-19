@@ -7,12 +7,13 @@ public class CamouflageNet : ModuleRules
 	public CamouflageNet(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+        bUseRTTI = true;
 
-        PublicIncludePaths.AddRange(new string[] {"Editor","Runtime/Engine", "CamouflageNet/Public" });
-        PrivateIncludePaths.AddRange(new string[] { "CamouflageNet/Public" });
+        PublicIncludePaths.AddRange(new string[] {"Editor","Runtime/Engine"/*, "CamouflageNet/Public" */});
+        PrivateIncludePaths.AddRange(new string[] { "CamouflageNet" });
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore",
-            "Slate", "AppFramework","SlateCore", "ApplicationCore" });
+            "Slate", "AppFramework","SlateCore", "ApplicationCore", "RenderCore" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

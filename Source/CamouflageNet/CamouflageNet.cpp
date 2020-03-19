@@ -4,6 +4,7 @@
 #include "Modules/ModuleManager.h"
 #include "Data/XResManager.h"
 #include "Style/XStyle.h"
+#include "Design/XEditorModeManager.h"
 
 void CamouflageModule::StartupModule()
 {
@@ -14,6 +15,12 @@ void CamouflageModule::ShutdownModule()
 {
 	UXResManagerInstance::GetInstance().ReleaseInstance();
 	FXStyle::Shutdown();
+}
+
+class FXEditorModeTools& GXLevelEditorModeTools()
+{
+	static FXEditorModeTools* EditorModeToolsSingleton = new FXEditorModeTools;
+	return *EditorModeToolsSingleton;
 }
 
 IMPLEMENT_PRIMARY_GAME_MODULE(CamouflageModule/*FDefaultGameModuleImpl*/, CamouflageNet, "CamouflageNet" );

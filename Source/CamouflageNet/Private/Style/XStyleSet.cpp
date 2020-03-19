@@ -821,7 +821,7 @@ void FXStyleSet::SetWidgetStyle()
 		Set("Button.Orange.Hover", FLinearColor(FColor(0XFFFF8C00)));
 		Set("Button.Orange.Pressed", FLinearColor(FColor(0XFFFF8400)));
 
-		/**@于业顺 轮播控件小按钮样式*/
+		/**@ 轮播控件小按钮样式*/
 		Set("Button.CarouseButton", FButtonStyle()
 			.SetNormal(IMAGE_BRUSH("Icons/PurePoint", Icon16x16, GetColor("Color.FFFFFFFF")))
 			.SetHovered(IMAGE_BRUSH("Icons/PurePoint", Icon16x16, GetColor("Color.FFFFFFFF")))
@@ -921,14 +921,14 @@ void FXStyleSet::SetWidgetStyle()
         );
 
         Set("Button.Minimize", FButtonStyle()
-            .SetNormal(IMAGE_BRUSH("Icons/Minimize", Icon24x24, FLinearColor(FColor(0XFFC8C9CC))))//@梁晓菲 最小化颜色
+            .SetNormal(IMAGE_BRUSH("Icons/Minimize", Icon24x24, FLinearColor(FColor(0XFFC8C9CC))))//@ 最小化颜色
             .SetHovered(IMAGE_BRUSH("Icons/Minimize", Icon24x24, FLinearColor::White))
             .SetPressed(IMAGE_BRUSH("Icons/Minimize", Icon24x24, FLinearColor::White))
             .SetDisabled(IMAGE_BRUSH("Icons/Minimize", Icon24x24, FLinearColor::White))
         );
 
         Set("Button.CloseApplication", FButtonStyle()
-            .SetNormal(IMAGE_BRUSH("Icons/CloseApplication", Icon24x24, FLinearColor(FColor(0XFFC8C9CC))))//@梁晓菲 关闭颜色
+            .SetNormal(IMAGE_BRUSH("Icons/CloseApplication", Icon24x24, FLinearColor(FColor(0XFFC8C9CC))))//@ 关闭颜色
             .SetHovered(IMAGE_BRUSH("Icons/CloseApplication", Icon24x24, FLinearColor::White))
             .SetPressed(IMAGE_BRUSH("Icons/CloseApplication", Icon24x24, FLinearColor::White))
             .SetDisabled(IMAGE_BRUSH("Icons/CloseApplication", Icon24x24, FLinearColor::White))
@@ -984,7 +984,7 @@ void FXStyleSet::SetWidgetStyle()
 		
     }
 
-	/**@于业顺 登录界面 scrollbox  */
+	/**@ 登录界面 scrollbox  */
 	{
 		Set("LoginScrollBox", FScrollBoxStyle()
 		.SetTopShadowBrush(BOX_BRUSH("Common/ScrollBoxShadowTop", FVector2D(16, 8), FMargin(0, 0, 0, 0), FLinearColor(FColor(1, 1, 1, 0))))
